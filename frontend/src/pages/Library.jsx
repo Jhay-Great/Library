@@ -13,7 +13,7 @@ import { filterDuplicate } from '../helpers/filter'
 function Library() {
   
   const [state, setState] = useState(null);
-  const BASE_API = 'http://localhost:8009'
+  // const BASE_API = 'http://localhost:8009'
 
   // fetch(`${BASE_API}/collection`).then(res => res.json()).then(data => setState(data));
 

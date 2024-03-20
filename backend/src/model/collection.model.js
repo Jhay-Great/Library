@@ -35,10 +35,11 @@ function addToCollection(data) {
 
 function createNewCollection(file) {
     const { collection: name, originalname: pdfName} = file;
+    // console.log(pdfName.originalname);
     const collection = {
         id: generateId(),
         collection: name,
-        name: pdfName,
+        name: pdfName.originalname,
     }
     return collection;
 }
