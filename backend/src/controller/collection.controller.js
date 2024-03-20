@@ -27,9 +27,12 @@ function httpGetCollectionItem(req, res) {
 }
 
 function httpAddToCollection(req, res) {
-    const {collection} = req.body
-    console.log(collection);
-    const response = addToCollection(collection);
+    const {collection} = req.body;
+    const originalname = req.file;
+    const file = { collection, originalname }
+    // console.log(req.file);
+    // console.log(collection);
+    const response = addToCollection(file);
     console.log(response); 
     res.status(201).json({message: response});
 }

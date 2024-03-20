@@ -20,11 +20,12 @@ function getItem(name) {
 }
 
 function addToCollection(data) {
-    console.log(data);
+    // console.log(data);
     const response = createNewCollection(data);
     try {
         if (!response) throw new Error('Upload failed')
         collection.push(response);
+        // console.log(collection);
         return 'Upload was successful';
     } catch (error) {
         console.log(error);
@@ -32,11 +33,12 @@ function addToCollection(data) {
     }
 }
 
-function createNewCollection(name) {
+function createNewCollection(file) {
+    const { collection: name, originalname: pdfName} = file;
     const collection = {
         id: generateId(),
         collection: name,
-        name: '',
+        name: pdfName,
     }
     return collection;
 }

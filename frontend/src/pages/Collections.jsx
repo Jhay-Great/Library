@@ -64,7 +64,7 @@ function Collections() {
             <div className='w-full min-h-40 p-2 flex flex-col gap-10 items-center flex-wrap sm:flex sm:flex-row sm:justify-center sm:items-center sm:gap-5'>
                 {filterDuplicate(dataCollections).map(item => (
                 <div key={item.id} className='w-52 h-36 bg-slate-300 border rounded text-center flex flex-col gap-5 py-2'>
-                    <p>{item.collection.replace(item.collection.at(0), item.collection.at(0).toUpperCase())}</p>
+                    <p>{item?.collection?.replace(item.collection.at(0), item.collection.at(0).toUpperCase())}</p>
                     <p>Number of available file: {getCount(dataCollections, item.collection)} </p>
                     {/* <p>{data.name}</p> */}
                 </div>
