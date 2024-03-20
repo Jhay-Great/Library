@@ -6,12 +6,13 @@ const {
   httpGetCollectionItem,
   httpAddToCollection,
 } = require("../controller/collection.controller");
+const upload = require('../utils/multer');
 
 const collectionRouter = express.Router();
 
 collectionRouter.get("/", httpGetEntireCollection);
 // collectionRouter.post('/', postGenre);
-collectionRouter.post('/', httpAddToCollection)
+collectionRouter.post('/', upload.single('pdf'), httpAddToCollection)
 collectionRouter.get("/:genreId", httpGetCollectionItem);
 
 module.exports = collectionRouter;
