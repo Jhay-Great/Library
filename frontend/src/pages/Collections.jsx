@@ -1,0 +1,91 @@
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+
+import Breadcrumbs from '../components/Breadcrumb'
+import data from '../../data'
+import Headings from '../components/Headings'
+import { filterDuplicate, getCount } from '../helpers/filter'
+import { httpGetEntireCollection, httpPostCollection } from '../helpers/httpRequest'
+import MainContainer from '../components/MainContainer'
+
+function Collections() {
+
+    const [dataCollections, setDataCollections] = useState(data);
+    const [inputValue, setInputValue] = useState('');
+    const [responseFromApi, setResponseFromApi] = useState('');
+    
+
+    useEffect(() => {
+        const fetchData = async function () {
+            const response = await httpGetEntireCollection();
+            setDataCollections(response);
+        }
+        fetchData();
+    }, [responseFromApi]);
+
+    const handleChange = function (e) {
+        setInputValue(e.target.value);
+    }
+
+    const handleSubmit = async function (e) {
+        e.preventDefault();
+        setInputValue('');
+        const formData = new FormData(e.target);
+        
+        const response = await httpPostCollection(formData);
+        setResponseFromApi(response);
+        
+    }
+    
+    
+  return (
+    <MainContainer>
+        <Headings children='Collections' />
+        
+        <section>
+            {/* <Breadcrumbs /> */}
+            <input type="text" placeholder='Browser collections' />
+            <button>Search</button>
+            <button>Filter</button>
+        </section>
+
+        <section>
+            <Headings children='Available collection' tag='h2' />
+            
+            <div className='w-full min-h-40 p-2 flex flex-col gap-10 items-center flex-wrap sm:flex sm:flex-row sm:justify-center sm:items-center sm:gap-5'>
+                {filterDuplicate(dataCollections).map(item => (
+                <div key={item.id} className='w-52 h-36 bg-slate-300 border rounded text-center flex flex-col gap-5 py-2'>
+                    <p>{item.collection.replace(item.collection.at(0), item.collection.at(0).toUpperCase())}</p>
+                    <p>Number of available file: {getCount(dataCollections, item.collection)} </p>
+                    {/* <p>{data.name}</p> */}
+                </div>
+                ))}
+            </div>
+        </section>
+
+        <div>
+            <Headings children='Add new collections' tag='h2' />
+
+            <form onSubmit={handleSubmit}>
+                <input type="text" onChange={handleChange} value={inputValue} name='collection' />
+                <button type='submit'>Add to collection</button>
+            </form>
+            
+            <p>
+                {/*If the collection or files you are looking for is not amongst the list of collections and files we have in our library or you will like to suggest a file or collection that will be great benefit, kindly make a suggestion of the collection or file you intend to see in the library. */}Communicate with us the intended file or collection and see your favorite collection or file in the library. <Link to='/about' className='underline text-blue-200'>Message us</Link>
+            </p>
+            
+        </div>
+        {
+            responseFromApi ? (
+                <div className='w-fit h-fit p-10 rounded-lg absolute -translate-y-1/2 -translate-x-1/2 top-1/2 left-1/2 bg-blue-800'>
+                    <p className='text-white font-bold text-3xl '> {responseFromApi.message} </p>
+                    <button onClick={() => setResponseFromApi(null)}>Ok</button>
+                </div>
+            ) : null
+        }
+    </MainContainer>
+  )
+}
+
+export default Collections
