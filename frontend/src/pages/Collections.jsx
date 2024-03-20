@@ -5,13 +5,14 @@ import Breadcrumbs from '../components/Breadcrumb'
 import data from '../../data'
 import Headings from '../components/Headings'
 import { filterDuplicate, getCount } from '../helpers/filter'
-import { httpGetEntireCollection, httpPostCollection } from '../helpers/httpRequest'
+import { httpGetEntireCollection, httpSubmitCollection } from '../helpers/httpRequest'
 import MainContainer from '../components/MainContainer'
 
 function Collections() {
 
     const [dataCollections, setDataCollections] = useState(data);
     const [inputValue, setInputValue] = useState('');
+    const [pdfFile, setPdfFile] = useState('');
     const [responseFromApi, setResponseFromApi] = useState('');
     
 
@@ -25,14 +26,22 @@ function Collections() {
 
     const handleChange = function (e) {
         setInputValue(e.target.value);
+        
+    }
+
+    const handleChangeInPdfFile = function(e) {
+        setPdfFile(e.target.files[0]);
     }
 
     const handleSubmit = async function (e) {
         e.preventDefault();
         setInputValue('');
         const formData = new FormData(e.target);
+        formData.append('pdf', pdfFile);
+
+        // console.log(Object.fromEntries(formData));
         
-        const response = await httpPostCollection(formData);
+        const response = await httpSubmitCollection(formData);
         setResponseFromApi(response);
         
     }
@@ -66,8 +75,12 @@ function Collections() {
         <div>
             <Headings children='Add new collections' tag='h2' />
 
-            <form onSubmit={handleSubmit}>
-                <input type="text" onChange={handleChange} value={inputValue} name='collection' />
+            <form onSubmit={handleSubmit} className='flex flex-col'>
+                <input type="text" onChange={handleChange} value={inputValue.collection} name='collection' />
+                <input type="file" accept='application/pdf' onChange={handleChangeInPdfFile} />
+                {/* {
+                    pdfFile && pdfFile['0'].size 
+                } */}
                 <button type='submit'>Add to collection</button>
             </form>
             

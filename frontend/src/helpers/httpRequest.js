@@ -6,7 +6,7 @@ export const httpGetEntireCollection = async function() {
     return await response.json();
 }
 
-export const httpPostCollection = async function(data) {
+export const httpSubmitCollection = async function(data) {
 
     const response = await fetch(`${BASE_API}/collection`, {
         method: 'POST',
