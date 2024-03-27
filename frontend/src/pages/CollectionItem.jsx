@@ -10,6 +10,7 @@ import {
   getSpecificCollections,
 } from "../helpers/filter";
 import data from "../../data";
+import Shelf from "../components/Shelf";
 
 const CollectionItem = function () {
   const { libraryId } = useParams();
@@ -20,7 +21,9 @@ const CollectionItem = function () {
     <MainContainer>
       <Headings children={` ${firstLetterToUpperCase(libraryId)} collection`} />
 
-      <div className="w-full flex gap-10 flex-wrap ">
+      <Shelf dataCollection={state} query={libraryId} />
+
+      {/* <div className="w-full flex gap-10 flex-wrap ">
         {getSpecificCollections(state, libraryId).map((item) =>
           item.name ? (
             <section key={item.id} className="w-52 h-40 border rounded">
@@ -28,7 +31,7 @@ const CollectionItem = function () {
             </section>
           ) : null
         )}
-      </div>
+      </div> */}
     </MainContainer>
   );
 };

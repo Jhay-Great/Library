@@ -10,8 +10,8 @@ export const getCount = function(array, name) {
     return list.length
 }
 
-export const getSpecificCollections = function(array, collectionType) {
-    const list = array.filter(arr => arr.genre === collectionType);
+export const getSpecificCollections = function(array, queryName) {
+    const list = array.filter(arr => arr.genre === queryName);
     return list;
 }
 
