@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 
 import Headings from '../components/Headings'
 import MainContainer from '../components/MainContainer'
@@ -7,23 +8,24 @@ import { httpGetEntireCollection } from '../helpers/httpRequest'
 
 import CollectionShelf from '../components/CollectionShelf'
 import { filterDuplicate } from '../helpers/filter'
-
+import data from '../../data';
 
 
 function Library() {
   
-  const [state, setState] = useState(null);
+  const [state, setState] = useState(data);
+  // const [state, setState] = useState(null);
   // const BASE_API = 'http://localhost:8009'
 
   // fetch(`${BASE_API}/collection`).then(res => res.json()).then(data => setState(data));
 
-  useEffect(() => {
-    const getData = async function() {
-      const response = await httpGetEntireCollection();
-      setState(response);
-    }
-    getData();
-  }, [])
+  // useEffect(() => {
+  //   const getData = async function() {
+  //     const response = await httpGetEntireCollection();
+  //     setState(response);
+  //   }
+  //   getData();
+  // }, [])
 
   return (
     <MainContainer>
