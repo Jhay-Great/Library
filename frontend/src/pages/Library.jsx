@@ -40,7 +40,7 @@ function Library() {
       {
           filterDuplicate(state)?.map(item => 
             <section key={item.id}>
-              <CollectionShelf collectionType={item.collection} data={state} />
+              <CollectionShelf collectionType={item.genre} data={state} />
               {/* <h3>{uc.collection}</h3>
               <p>{uc.name}</p> */}
             </section>)

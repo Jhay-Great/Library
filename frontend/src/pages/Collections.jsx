@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import Breadcrumbs from '../components/Breadcrumb'
-import data from '../../data'
+// import data from '../../data' // for testing purposes
 import Headings from '../components/Headings'
 import { filterDuplicate, getCount } from '../helpers/filter'
 import { httpGetEntireCollection, httpSubmitCollection } from '../helpers/httpRequest'
@@ -10,7 +10,7 @@ import MainContainer from '../components/MainContainer'
 
 function Collections() {
 
-    const [dataCollections, setDataCollections] = useState(data);
+    const [dataCollections, setDataCollections] = useState([]);
     const [inputValue, setInputValue] = useState('');
     const [pdfFile, setPdfFile] = useState('');
     const [responseFromApi, setResponseFromApi] = useState('');
@@ -42,9 +42,16 @@ function Collections() {
         // console.log(Object.fromEntries(formData));
         
         const response = await httpSubmitCollection(formData);
+        console.log(response);
         setResponseFromApi(response);
         
     }
+
+    // if (!dataCollections) {
+    //     return (
+    //         <M
+    //     )
+    // }
     
     
   return (
@@ -62,13 +69,13 @@ function Collections() {
             <Headings children='Available collection' tag='h2' />
             
             <div className='w-full min-h-40 p-2 flex flex-col gap-10 items-center flex-wrap sm:flex sm:flex-row sm:justify-center sm:items-center sm:gap-5'>
-                {filterDuplicate(dataCollections).map(item => (
+                {dataCollections ? filterDuplicate(dataCollections).map(item => (
                 <div key={item.id} className='w-52 h-36 bg-slate-300 border rounded text-center flex flex-col gap-5 py-2'>
-                    <p>{item?.collection?.replace(item.collection.at(0), item.collection.at(0).toUpperCase())}</p>
-                    <p>Number of available file: {getCount(dataCollections, item.collection)} </p>
+                    <p>{item?.genre?.replace(item.genre.at(0), item.genre.at(0).toUpperCase())}</p>
+                    <p>Number of available file: {getCount(dataCollections, item.genre)} </p>
                     {/* <p>{data.name}</p> */}
                 </div>
-                ))}
+                )) : <p>No Collection available</p> }
             </div>
         </section>
 
