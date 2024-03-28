@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 
 import Breadcrumbs from '../components/Breadcrumb'
@@ -10,24 +10,27 @@ import MainContainer from '../components/MainContainer'
 
 function Collections() {
 
-    const [dataCollections, setDataCollections] = useState(data);
+    // const [dataCollections, setDataCollections] = useState(data); for testing without db
+    const [dataCollections, setDataCollections] = useState([]);
     const [inputValue, setInputValue] = useState('');
     const [pdfFile, setPdfFile] = useState('');
     const [responseFromApi, setResponseFromApi] = useState('');
     
     /**uncomment when integrating with db */
-    // useEffect(() => {
-    //     const fetchData = async function () {
-    //         const response = await httpGetEntireCollection();
-    //         //TODO: proper error handling to be implemented
-    //         if (response.response === 'failed') {
-    //             return setDataCollections([]);
-    //         }
-    //         setDataCollections(response);
+    useEffect(() => {
+        const fetchData = async function () {
+            const response = await httpGetEntireCollection();
+            //TODO: proper error handling to be implemented
+            if (response.response === 'failed') {
+                return setDataCollections([]);
+            }
+            setDataCollections(response);
             
-    //     }
-    //     fetchData();
-    // }, [responseFromApi]);
+        }
+        fetchData();
+    }, [responseFromApi]);
+
+    const ref = useRef();
 
     const handleChange = function (e) {
         setInputValue(e.target.value);
@@ -41,6 +44,7 @@ function Collections() {
     const handleSubmit = async function (e) {
         e.preventDefault();
         setInputValue('');
+        ref.current.value = ''; //try to gain understanding
         const formData = new FormData(e.target);
         formData.append('pdf', pdfFile);
 
@@ -83,8 +87,8 @@ function Collections() {
             <Headings children='Add new collections' tag='h2' />
 
             <form onSubmit={handleSubmit} className='flex flex-col'>
-                <input type="text" onChange={handleChange} value={inputValue.collection} name='collection' />
-                <input type="file" accept='application/pdf' onChange={handleChangeInPdfFile} />
+                <input type="text" onChange={handleChange} value={inputValue} name='collection' required />
+                <input type="file" accept='application/pdf' onChange={handleChangeInPdfFile} required ref={ref}  />
                 {/* {
                     pdfFile && pdfFile['0'].size 
                 } */}

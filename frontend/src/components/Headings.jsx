@@ -1,6 +1,7 @@
 import React from 'react'
 
 function Headings({children, tag='h1', additionalStyles=''}) {
+  console.log('Headings also ran')
     if (tag === 'h1') return (
         <h1 className={`text-white font-bold text-3xl ${additionalStyles}`} >
             {children}

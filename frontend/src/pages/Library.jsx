@@ -13,19 +13,24 @@ import data from '../../data';
 
 function Library() {
   
-  const [state, setState] = useState(data);
-  // const [state, setState] = useState(null);
-  // const BASE_API = 'http://localhost:8009'
+  const [state, setState] = useState(null);
 
   // fetch(`${BASE_API}/collection`).then(res => res.json()).then(data => setState(data));
 
-  // useEffect(() => {
-  //   const getData = async function() {
-  //     const response = await httpGetEntireCollection();
-  //     setState(response);
-  //   }
-  //   getData();
-  // }, [])
+  useEffect(() => {
+    const getData = async function() {
+      // const response = await httpGetEntireCollection();
+      // setState(response);
+      // console.log(state);
+      const response = await httpGetEntireCollection();
+      if (response.response === 'failed') {
+        return setState(null)
+      }
+      setState(response);
+      
+    }
+    getData();
+  }, [])
 
   return (
     <MainContainer>
@@ -40,7 +45,7 @@ function Library() {
 
         
       {
-          filterDuplicate(state)?.map(item => 
+          state !== null && filterDuplicate(state)?.map(item => 
             <section key={item.id}>
               <CollectionShelf collectionType={item.genre} data={state} />
               {/* <h3>{uc.collection}</h3>

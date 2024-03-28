@@ -10,9 +10,9 @@ export const httpGetEntireCollection = async function() {
     
     try {
         const response = await fetch(`${BASE_API}/collection`);
-        console.log(response);
+        // console.log(response);
         if (!response.ok) throw new Error('Failed to fetch data, Refresh page');
-        return response;
+        return response.json();
 
     } catch (error) {
         return {

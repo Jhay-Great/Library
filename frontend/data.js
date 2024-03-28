@@ -1,9 +1,9 @@
 const data = [
-    {id: 123, collection: 'frontend', name: 'HTML & CSS for Beginners'},
-    {id: 129, collection: 'frontend', name: 'Eloquent Javascript'},
-    {id: 143, collection: 'backend', name: 'Ultimate Nodejs and MongoDB guide'},
-    {id: 133, collection: 'programming', name: 'Clean codes'},
-    // {id: 133, collection: 'backend', name: 'Javascript OOP'},
+    {id: 123, genre: 'frontend', name: 'HTML & CSS for Beginners'},
+    {id: 129, genre: 'frontend', name: 'Eloquent Javascript'},
+    {id: 143, genre: 'backend', name: 'Ultimate Nodejs and MongoDB guide'},
+    {id: 133, genre: 'programming', name: 'Clean codes'},
+    // {id: 133, genre: 'backend', name: 'Javascript OOP'},
 ];
 
 export default data;

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 
 import Headings from "../components/Headings";
@@ -11,11 +11,24 @@ import {
 } from "../helpers/filter";
 import data from "../../data";
 import Shelf from "../components/Shelf";
+import { httpGetEntireCollection } from '../helpers/httpRequest'
 
 const CollectionItem = function () {
   const { libraryId } = useParams();
   const [dataCollections, setDataCollections] = useState(data);
-  const [state, setState] = useState(data);
+  const [state, setState] = useState([]);
+
+  useEffect(() => {
+    const getData = async function() {
+      const response = await httpGetEntireCollection();
+      if (response.response === 'failed') {
+        return setState(null)
+      }
+      setState(response);
+      
+    }
+    getData();
+  }, [])
 
   return (
     <MainContainer>

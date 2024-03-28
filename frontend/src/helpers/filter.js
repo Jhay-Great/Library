@@ -1,6 +1,7 @@
 
 
 export const filterDuplicate = function(dataArray) {
+    console.log(dataArray);
     return dataArray?.filter((ar, i) => dataArray.findIndex(data => data.genre === ar.genre) === i)
 }
 
