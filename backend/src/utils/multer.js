@@ -9,7 +9,7 @@ const storage = multer.diskStorage({
     },
     // set up filename
     filename(req, file, cb) {
-        cb(null, Date.now() + '_' + file.originalname);
+        cb(null, file.originalname); //would handle duplication
     },
 })
 
