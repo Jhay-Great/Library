@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 
 import Breadcrumbs from '../components/Breadcrumb'
@@ -30,6 +30,7 @@ function Collections() {
         fetchData();
     }, [responseFromApi]);
 
+    const filteredData = useMemo(() => filterDuplicate(dataCollections), [dataCollections])
     const ref = useRef();
 
     const handleChange = function (e) {
@@ -55,6 +56,8 @@ function Collections() {
         setResponseFromApi(response);
         
     }
+
+
     
     
   return (
@@ -73,7 +76,7 @@ function Collections() {
             
             <div className='w-full min-h-40 p-2 flex flex-col gap-10 items-center flex-wrap sm:flex sm:flex-row sm:justify-center sm:items-center sm:gap-5'>
             {/* convert the collections into links */}
-                {dataCollections.length !== 0 ? filterDuplicate(dataCollections).map(item => (
+                {dataCollections.length !== 0 ? filteredData.map(item => (
                 <Link to={`/library/${item.genre}`} key={item.id} className='w-52 h-36 bg-slate-300 border rounded text-center flex flex-col gap-5 py-2'>
                     <p>{item?.genre?.replace(item.genre.at(0), item.genre.at(0).toUpperCase())}</p>
                     <p>Number of available file: {getCount(dataCollections, item.genre)} </p>
@@ -81,6 +84,7 @@ function Collections() {
                 </Link>
                 )) : <p>No Collection available</p> }
             </div>
+            
         </section>
 
         <div>

@@ -20,6 +20,16 @@ export const httpGetEntireCollection = async function() {
             message: error.message,
         }
     }
+
+    /**fetch request option 2 */ 
+    // try {
+    //     const response = httpFetch();
+    //     if (!response.ok) return `Could not fetch data`;
+    //     return response.json();
+        
+    // } catch (error) {
+    //     return `Internal server error ${error.message}`;
+    // }
     
     // try {
     //     const response = await fetch(`${BASE_API}/collection`);

@@ -5,12 +5,12 @@ import HamburgerBtn from './HamburgerBtn';
 const Nav = function () {
   return (
     <>
-      <nav className="w-full h-20 px-2 bg-blue-400 flex justify-between items-center">
+      <nav className="w-full h-20 px-2 bg-secondaryColor shadow-md flex justify-between items-center fixed">
         <Link to='/'>
           <img src="" alt="page logo" />
         </Link>
         <HamburgerBtn />
-        <ul className="w-full h-full justify-center items-center gap-10 font-bold text-white hidden sm:flex ">
+        <ul className="w-full h-full justify-center items-center gap-24 font-bold text-white hidden sm:flex ">
             
           <Link to="/collections">
             <li>Collections</li>

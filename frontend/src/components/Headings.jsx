@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 
 function Headings({children, tag='h1', additionalStyles=''}) {
   console.log('Headings also ran')
@@ -8,24 +8,12 @@ function Headings({children, tag='h1', additionalStyles=''}) {
         </h1>
     )
   return (
-    <h2 className={`text-white font-semibold text-xl ${additionalStyles}`}>
+    <h2 className={`text-altColor font-semibold text-xl ${additionalStyles}`}>
         {children}
     </h2>
   )
 }
 
-export default Headings
+export default memo(Headings)
 
-// import filter from '../helpers/filter'
-// const arr = ['c', 'd', 'a', 'c'];
-// console.log(filter(arr));
-
-
-
-// console.log(arr.indexOf(1))
-// console.log(arr.filter((ar, i) => arr.indexOf(ar) === i))
-
-// // const set = new Set(arr)
-// // console.log(set)
-// // const ar = [...set];
-// // console.log(ar)
+//NOTE: looking at memoizing this function to prevent unnecessary rending
