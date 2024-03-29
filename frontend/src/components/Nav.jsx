@@ -1,17 +1,21 @@
 import { Link } from 'react-router-dom'
 import HamburgerBtn from './HamburgerBtn';
+import logo from '../../public/faviconio-logo/logo.svg'
+import mobileLogo from '../../public/faviconio-logo/logo2.svg'
 
 
 const Nav = function () {
   return (
     <>
-      <nav className="w-full h-20 px-2 bg-secondaryColor shadow-md flex justify-between items-center fixed">
-        <Link to='/'>
-          <img src="" alt="page logo" />
+      <nav className="w-full h-20 bg-secondaryColor shadow-md flex justify-between items-center fixed">
+        <Link to='/' className='flex h-full'>
+          <img src={logo} alt="page logo" className='hidden md:block' />
+          <img src={mobileLogo} alt="page logo" className='block md:hidden' />
         </Link>
+
         <HamburgerBtn />
+
         <ul className="w-full h-full justify-center items-center gap-24 font-bold text-white hidden sm:flex ">
-            
           <Link to="/collections">
             <li>Collections</li>
           </Link>
