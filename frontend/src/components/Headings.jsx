@@ -8,7 +8,7 @@ function Headings({children, tag='h1', additionalStyles=''}) {
         </h1>
     )
   return (
-    <h2 className={`text-altColor font-semibold text-xl ${additionalStyles}`}>
+    <h2 className={`mb-5 text-altColor font-semibold text-xl ${additionalStyles}`}>
         {children}
     </h2>
   )

@@ -77,7 +77,7 @@ function Collections() {
             <div className='w-full min-h-40 p-2 flex flex-col gap-10 items-center flex-wrap sm:flex sm:flex-row sm:justify-center sm:items-center sm:gap-5'>
             {/* convert the collections into links */}
                 {dataCollections.length !== 0 ? filteredData.map(item => (
-                <Link to={`/library/${item.genre}`} key={item.id} className='w-52 h-36 bg-slate-300 border rounded text-center flex flex-col gap-5 py-2'>
+                <Link to={`/library/${item.genre}`} key={item.id} className='w-full sm:w-52 h-36 md:w-80 md:h-56 bg-slate-900 border rounded text-center flex flex-col gap-5 py-2 text-white'>
                     <p>{item?.genre?.replace(item.genre.at(0), item.genre.at(0).toUpperCase())}</p>
                     <p>Number of available file: {getCount(dataCollections, item.genre)} </p>
                     {/* <p>{data.name}</p> */}
@@ -87,23 +87,22 @@ function Collections() {
             
         </section>
 
-        <div>
+        <section>
             <Headings children='Add new collections' tag='h2' />
-
-            <form onSubmit={handleSubmit} className='flex flex-col'>
-                <input type="text" onChange={handleChange} value={inputValue} name='collection' required />
-                <input type="file" accept='application/pdf' onChange={handleChangeInPdfFile} required ref={ref}  />
-                {/* {
-                    pdfFile && pdfFile['0'].size 
-                } */}
-                <button type='submit'>Add to collection</button>
+            
+            <form onSubmit={handleSubmit} className='mb-5 flex flex-col gap-3'>
+                <div className='flex gap-3 flex-wrap'>
+                    <input type="text" onChange={handleChange} value={inputValue} name='collection' placeholder='Enter your desired collection' required className='px-2 bg-transparent border-b-2 flex-auto' />
+                    <input type="file" accept='application/pdf' onChange={handleChangeInPdfFile} required ref={ref} className='flex-auto'  />
+                </div>
+                <button type='submit' className='max-w-md h-10 bg-primaryColor rounded-md font-bold text-white'>Add to collection</button>
             </form>
             
             <p>
                 {/*If the collection or files you are looking for is not amongst the list of collections and files we have in our library or you will like to suggest a file or collection that will be great benefit, kindly make a suggestion of the collection or file you intend to see in the library. */}Communicate with us the intended file or collection and see your favorite collection or file in the library. <Link to='/about' className='underline text-blue-200'>Message us</Link>
             </p>
             
-        </div>
+        </section>
         {
             responseFromApi ? (
                 <div className='w-fit h-fit p-10 rounded-lg absolute -translate-y-1/2 -translate-x-1/2 top-1/2 left-1/2 bg-blue-800'>
