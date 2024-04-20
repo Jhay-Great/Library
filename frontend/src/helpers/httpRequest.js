@@ -1,4 +1,5 @@
-const BASE_API = 'http://localhost:8009'
+// const BASE_API = 'http://localhost:8009'
+const BASE_API = 'https://library-x1oq.onrender.com';
 
 // @Get request / getting entire collection
 export const httpGetEntireCollection = async function() {
