@@ -1,23 +1,8 @@
 const { getEntireCollection, getCollectionItem, addToCollection } = require('../model/collection.model')
 
-// function postGenre(req, res) {
 
-//     if (!req.body.genre || !req.body.inStock) {
-//         return res.status(400).json({error: 'Invalid stock entered, kindly provide all necessary details'})
-//     }
-    
-//     const newGenre = {
-//         id: model.length + 1,
-//         genre: req.body.genre,
-//         inStock: req.body.inStock,
-//         samples: []
-//     }
-//     model.push(newGenre);
-//     res.json(model);
-// }
-
-function httpGetEntireCollection(req, res) {
-    return res.json(getEntireCollection());
+async function httpGetEntireCollection(req, res) {
+    return res.json(await getEntireCollection());
 }
 
 function httpGetCollectionItem(req, res) {
@@ -27,11 +12,17 @@ function httpGetCollectionItem(req, res) {
 }
 
 function httpAddToCollection(req, res) {
-    const {collection} = req.body
-    console.log(collection);
-    const response = addToCollection(collection);
-    console.log(response); 
+    const {collection} = req.body;
+    const originalname = req.file;
+    const file = { collection, originalname }
+    console.log(originalname);
+    // validating inputs
+    //TODO: add validation
+
+    const response = addToCollection(file);
+    if (!response) return res.status(400).json({message: response});
     res.status(201).json({message: response});
+
 }
 
 /** trying to get collection by either "Frontend", "Backend", "Programming" */
