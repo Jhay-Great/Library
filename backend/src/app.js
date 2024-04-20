@@ -9,7 +9,8 @@ const app = express();
 
 
 app.use(cors({
-    origin: 'http://localhost:5173'
+    origin: 'https://pglibrary.netlify.app/'
+    // origin: 'http://localhost:5173'
 }))
 app.use('/file', express.static(path.join(__dirname, '..', './files')));
 app.use(express.json());
