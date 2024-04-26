@@ -77,7 +77,7 @@ function Collections() {
             <div className='w-full min-h-40 p-2 flex flex-col gap-10 items-center flex-wrap sm:flex sm:flex-row sm:justify-center sm:items-center sm:gap-5'>
             {/* convert the collections into links */}
                 {dataCollections.length !== 0 ? filteredData.map(item => (
-                <Link to={`/library/${item.genre}`} key={item.id} className='w-full sm:w-52 h-36 md:w-80 md:h-56 bg-slate-900 border rounded text-center flex flex-col gap-5 py-2 text-white'>
+                <Link to={`/library/${item.genre}`} key={item.id} className='w-full sm:w-52 h-36 md:w-80 md:h-56 bg-slate-900 border rounded text-center flex flex-col gap-5 text-white overflow-hidden after:w-[5px] after:h-full after:absolute after:bg-red-500 relative'> 
                     <p>{item?.genre?.replace(item.genre.at(0), item.genre.at(0).toUpperCase())}</p>
                     <p>Number of available file: {getCount(dataCollections, item.genre)} </p>
                     {/* <p>{data.name}</p> */}
@@ -116,3 +116,21 @@ function Collections() {
 }
 
 export default Collections
+
+
+// TODO: collection color should be dependent on the available number of resources upload
+/**
+ * resources 
+ *      < 10 => 'red'
+ *      > 10 => 'yellow'
+ *      > 20 => 'green'
+ */
+
+
+
+
+
+
+
+
+
