@@ -78,7 +78,7 @@ function Collections() {
             {/* convert the collections into links */}
                 {dataCollections.length !== 0 ? filteredData.map(item => (
                 <Link to={`/library/${item.genre}`} key={item.id} className='w-full sm:w-52 h-36 md:w-80 md:h-56 bg-slate-900 border rounded text-center flex flex-col gap-5 text-white overflow-hidden after:w-[5px] after:h-full after:absolute after:bg-red-500 relative'> 
-                    <p>{item?.genre?.replace(item.genre.at(0), item.genre.at(0).toUpperCase())}</p>
+                    <p className='mt-4'>{item?.genre?.replace(item.genre.at(0), item.genre.at(0).toUpperCase())}</p>
                     <p>Number of available file: {getCount(dataCollections, item.genre)} </p>
                     {/* <p>{data.name}</p> */}
                 </Link>
