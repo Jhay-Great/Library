@@ -10,25 +10,25 @@ import MainContainer from '../components/MainContainer'
 
 function Collections() {
 
-    // const [dataCollections, setDataCollections] = useState(data); for testing without db
-    const [dataCollections, setDataCollections] = useState([]);
+    const [dataCollections, setDataCollections] = useState(data);  // for testing without server
+    // const [dataCollections, setDataCollections] = useState([]);
     const [inputValue, setInputValue] = useState('');
     const [pdfFile, setPdfFile] = useState('');
     const [responseFromApi, setResponseFromApi] = useState('');
     
-    /**uncomment when integrating with db */
-    useEffect(() => {
-        const fetchData = async function () {
-            const response = await httpGetEntireCollection();
-            //TODO: proper error handling to be implemented
-            if (response.response === 'failed') {
-                return setDataCollections([]);
-            }
-            setDataCollections(response);
+    /**uncomment when working with server */
+    // useEffect(() => {
+    //     const fetchData = async function () {
+    //         const response = await httpGetEntireCollection();
+    //         //TODO: proper error handling to be implemented
+    //         if (response.response === 'failed') {
+    //             return setDataCollections([]);
+    //         }
+    //         setDataCollections(response);
             
-        }
-        fetchData();
-    }, [responseFromApi]);
+    //     }
+    //     fetchData();
+    // }, [responseFromApi]);
 
     const filteredData = useMemo(() => filterDuplicate(dataCollections), [dataCollections])
     const ref = useRef();
