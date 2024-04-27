@@ -1,6 +1,14 @@
-const HamburgerBtn = function() {
+import { useState } from "react";
+
+const HamburgerBtn = function({ click, handleClick }) {
+    const [ state, setState ] = useState('s')
+    // const handleClick = function() {
+    //     // console.log('ran')
+    //     setState(state === 's' ? 'd' : 's');
+    //     console.log(state)
+    // }
     return (
-        <button className='flex flex-col gap-1 sm:hidden'>
+        <button onClick={handleClick} className='flex flex-col gap-1 sm:hidden'>
             <HamburgerBar />
             <HamburgerBar />
             <HamburgerBar />

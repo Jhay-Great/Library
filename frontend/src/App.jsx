@@ -1,4 +1,4 @@
-import React, { createContext } from 'react'
+import React, { createContext, useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import Homepage from './pages/Homepage'
@@ -7,13 +7,21 @@ import Collections from './pages/Collections'
 import Library from './pages/Library'
 import Nav from './components/Nav'
 import CollectionItem from './pages/CollectionItem'
+import VerticalNavBar from './components/VeriticalNavBar'
 
 
 function App() {
+  const [ displayNavBar, setDisplayNavBar ] = useState('hidden');
+
+  const handleNavBar = function() {
+    setDisplayNavBar(displayNavBar === 'hidden' ? 'flex' : 'hidden');
+  }
+
   return (
       <div className='w-full min-h-screen '>
         <BrowserRouter>
-        <Nav />
+        <Nav handleClick={handleNavBar} />
+        <VerticalNavBar toggle={displayNavBar} handleClick={handleNavBar} />
           <Routes>
             <Route path='/' element={ <Homepage /> } />
             <Route path='/collections' element={ <Collections /> } />
