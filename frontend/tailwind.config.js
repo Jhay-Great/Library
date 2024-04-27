@@ -1,3 +1,5 @@
+import { plugin } from 'postcss';
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -10,10 +12,24 @@ export default {
         primaryColor: '#96a4d3',
         secondaryColor: ' #152046',
         altColor: '#aa8f76',
+      },
+      backgroundImage: {
+        gradient: ' linear-gradient(199deg, #003a -67%, transparent);'
       }
     },
   },
-  plugins: [],
+  plugins: [
+    // plugin(function ({matchUtilities, theme}) {
+    //   matchUtilities(
+    //     {
+    //       'text-shadow': (value) => ({
+    //         textShadow: value,
+    //       }),
+    //     },
+    //     { values: theme('textShadow') }
+    //   )
+    // })
+  ],
 }
 
 

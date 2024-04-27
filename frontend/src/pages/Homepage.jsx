@@ -5,7 +5,7 @@ import bg from '../assets/bg_image.jpg';
 
 function Homepage() {
   return (
-    <main className='w-full h-screen bg-transparent flex flex-col relative'>
+    <main className='w-full h-screen bg-transparent flex flex-col relative text-white'>
       <span 
         className=" w-full h-full absolute -z-10 bg-cover bg-bottom"
         style={{backgroundImage: `url(${bg})`}}

@@ -11,26 +11,29 @@ import { filterDuplicate } from '../helpers/filter'
 import data from '../../data';
 
 
+
 function Library() {
   
-  const [state, setState] = useState(null);
+  const [state, setState] = useState(data); // for local testing without server
+  // const [state, setState] = useState(null);
 
   // fetch(`${BASE_API}/collection`).then(res => res.json()).then(data => setState(data));
 
-  useEffect(() => {
-    const getData = async function() {
-      // const response = await httpGetEntireCollection();
-      // setState(response);
-      // console.log(state);
-      const response = await httpGetEntireCollection();
-      if (response.response === 'failed') {
-        return setState(null)
-      }
-      setState(response);
+  /**uncomment for production / comment for dev mode */
+  // useEffect(() => {
+  //   const getData = async function() {
+  //     // const response = await httpGetEntireCollection();
+  //     // setState(response);
+  //     // console.log(state);
+  //     const response = await httpGetEntireCollection();
+  //     if (response.response === 'failed') {
+  //       return setState(null)
+  //     }
+  //     setState(response);
       
-    }
-    getData();
-  }, [])
+  //   }
+  //   getData();
+  // }, [])
 
   return (
     <MainContainer>
@@ -63,3 +66,29 @@ function Library() {
 }
 
 export default Library
+
+
+
+// element.style {
+//   display: flex;
+//   flex-direction: column;
+//   /* align-items: center; */
+//   justify-content: center;
+//   gap: 1rem;
+//   background: linear-gradient(199deg, black -67%, transparent);
+// text-shadow: 0px 3px 17px;
+// }
+
+// button
+// element.style {
+//   border-bottom: 2px solid red;
+//   border-radius: 2rem;
+//   background: brown;
+//   height: 2.3rem;
+//   /* padding: .31rem 0; */
+//   font-weight: 600;
+//   text-transform: uppercase;
+//   font-size: .75rem;
+// }
+
+

@@ -12,7 +12,7 @@ export const getCount = function(array, name) {
 }
 
 export const getSpecificCollections = function(array, queryName) {
-    const list = array.filter(arr => arr.genre === queryName);
+    const list = array?.filter(arr => arr.genre === queryName);
     return list;
 }
 
