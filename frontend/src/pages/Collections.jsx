@@ -7,6 +7,7 @@ import Headings from '../components/Headings'
 import { filterDuplicate, getCount } from '../helpers/filter'
 import { httpGetEntireCollection, httpSubmitCollection } from '../helpers/httpRequest'
 import MainContainer from '../components/MainContainer'
+import Input from '../components/Input'
 
 function Collections() {
 
@@ -66,7 +67,8 @@ function Collections() {
         
         <section>
             {/* <Breadcrumbs /> */}
-            <input type="text" placeholder='Browser collections' />
+            <Input placeholder='Browser collections' />
+            {/* <input type="text" placeholder='Browser collections' /> */}
             <button>Search</button>
             <button>Filter</button>
         </section>

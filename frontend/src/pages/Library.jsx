@@ -9,6 +9,7 @@ import { httpGetEntireCollection } from '../helpers/httpRequest'
 import CollectionShelf from '../components/CollectionShelf'
 import { filterDuplicate } from '../helpers/filter'
 import data from '../../data';
+import Input from '../components/Input'
 
 
 
@@ -35,13 +36,20 @@ function Library() {
   //   getData();
   // }, [])
 
+  // input - search {
+//   background: transparent;
+//   border: 1px solid;
+//   color: black;
+//   padding: .1rem .5rem;
+// }
+
   return (
     <MainContainer>
         <Headings children='Library' />
         <p>Skim or search through our Library </p>
 
-        <section>
-            <input type="search" />
+        <section className='flex gap-4'>
+            <Input placeholder='Browse library' />
             <button>Search</button>
         </section>
 
@@ -90,5 +98,7 @@ export default Library
 //   text-transform: uppercase;
 //   font-size: .75rem;
 // }
+
+
 
 
