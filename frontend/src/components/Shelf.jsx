@@ -10,10 +10,10 @@ function Shelf({dataCollection, query}) {
     }
 
   return (
-    <div className="w-full flex gap-10 flex-wrap ">
+    <div className="hide-scrollbar w-full flex gap-10 overflow-x-scroll px-4 scrollbar-width-[scrollbar-width] ">
     {getSpecificCollections(dataCollection, query)?.map((item) =>
       item.name ? (
-        <section key={item.id} className="w-52 h-40 border rounded flex flex-col justify-center items-center gap-4 bg-gradient-to-bl from-[#003a] from-7% ">
+        <section key={item.id} className="flex-unique w-52 h-40 border rounded flex flex-col justify-center items-center gap-4 bg-gradient-to-bl from-[#003a] from-7% basis-auto ">
           <p className="text-sm text-center textShadow-lg"> {item.name} </p>
           <button className='border-b px-2 border-black hover:bg-primaryColor hover:text-black hover:rounded-md' onClick={() => openFile(item.name)}>Read pdf</button>
         </section>

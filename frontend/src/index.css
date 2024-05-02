@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+    .hide-scrollbar {
+        scrollbar-width: none;
+    }
+    .flex-unique {
+        flex: 0 0 auto;
+    }
+}
+
+

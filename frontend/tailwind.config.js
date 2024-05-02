@@ -1,5 +1,6 @@
 import { plugin } from 'postcss';
 
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -18,18 +19,7 @@ export default {
       }
     },
   },
-  plugins: [
-    // plugin(function ({matchUtilities, theme}) {
-    //   matchUtilities(
-    //     {
-    //       'text-shadow': (value) => ({
-    //         textShadow: value,
-    //       }),
-    //     },
-    //     { values: theme('textShadow') }
-    //   )
-    // })
-  ],
+  plugins: [],
 }
 
 
