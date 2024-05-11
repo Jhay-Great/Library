@@ -10,7 +10,7 @@ function Homepage() {
         className=" w-full h-full absolute -z-10 bg-cover bg-bottom"
         style={{backgroundImage: `url(${bg})`}}
         ></span>
-        <section className='flex-auto flex flex-col justify-center items-center gap-5 px-2 text-secondaryColor'>
+        <section className='flex-auto flex flex-col justify-center items-center gap-5 px-2 '>
             <h1 className='text-2xl sm:text-6xl font-extrabold text-center'>Programming Library</h1>
             <p>All of your files at a centralized location</p>
             <p>Click to explore <Link className='font-bold' to='/collections'>Collections</Link></p>
