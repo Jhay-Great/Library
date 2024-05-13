@@ -35,13 +35,7 @@ function Library() {
   //   }
   //   getData();
   // }, [])
-
-  // input - search {
-//   background: transparent;
-//   border: 1px solid;
-//   color: black;
-//   padding: .1rem .5rem;
-// }
+  
 
   return (
     <MainContainer>

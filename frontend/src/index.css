@@ -3,12 +3,31 @@
 @tailwind utilities;
 
 @layer utilities {
-    .hide-scrollbar {
-        scrollbar-width: none;
-    }
-    .flex-unique {
-        flex: 0 0 auto;
-    }
+  .hide-scrollbar {
+    scrollbar-width: none;
+  }
+  .flex-unique {
+    flex: 0 0 auto;
+  }
+
+  .nabla-bannerFont {
+    font-family: "Nabla", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+    font-variation-settings: "EDPT" 100, "EHLT" 12;
+    letter-spacing: 13px;
+    text-shadow: -11px 13px 12px #000a;
+  }
 }
 
-
+@layer base {
+  main > section {
+    /* filter: blur(10px); */
+    backdrop-filter: blur(30px);
+  }
+  h1 {
+    letter-spacing: 2px;
+    line-height: 10rem;
+  }
+}

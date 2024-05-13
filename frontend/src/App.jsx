@@ -32,11 +32,15 @@ function App() {
         </BrowserRouter>
         
         
-        
-        
       </div>
       
   )
 }
 
 export default App
+
+// https://coolors.co/palette/110f24-141633-1e1a33-9a5751-1d2044-feac8e
+/**
+ * alt-2
+ * https://coolors.co/palette/46bbbb-004b82-1c6185-2f7394-003563-f14b7e
+ */

@@ -68,7 +68,6 @@ function Collections() {
         <section>
             {/* <Breadcrumbs /> */}
             <Input placeholder='Browser collections' />
-            {/* <input type="text" placeholder='Browser collections' /> */}
             <button>Search</button>
             <button>Filter</button>
         </section>
