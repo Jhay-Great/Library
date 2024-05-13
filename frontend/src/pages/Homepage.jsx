@@ -13,7 +13,7 @@ function Homepage() {
         <section className='flex-auto flex flex-col justify-center items-center gap-10 px-2 '>
             <h1 className='nabla-bannerFont text-6xl sm:text-9xl font-extrabold text-center '>Kanemo</h1>
             <p className='font-poetsen text-2xl text-center'>All of your files at a centralized location</p>
-            <p className='font-poetsen text-xl text-center mt-10 uppercase'>Explore <Link className='font-extrabold text-lapisLazuli hover:text-special hover:underline' to='/collections'>Collections</Link></p>
+            <p className='font-poetsen text-xl text-center mt-10 uppercase'>Explore <Link className='font-extrabold text-[#fe0] hover:text-[#fb0] hover:underline' to='/collections'>Collections</Link></p>
         </section>
     </main>
   )
