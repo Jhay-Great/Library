@@ -30,7 +30,6 @@ export default {
         gradient: ' linear-gradient(199deg, #003a -67%, transparent);'
       },
       fontFamily: {
-        // family=Poetsen+One&display=swap
         poetsen: 'Poetsen One'
       }
     },

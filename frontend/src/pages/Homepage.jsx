@@ -10,10 +10,10 @@ function Homepage() {
         className=" w-full h-full absolute -z-10 bg-cover bg-bottom"
         style={{backgroundImage: `url(${bg})`}}
         ></span>
-        <section className='flex-auto flex flex-col justify-center items-center gap-5 px-2 '>
+        <section className='flex-auto flex flex-col justify-center items-center gap-10 px-2 '>
             <h1 className='nabla-bannerFont text-6xl sm:text-9xl font-extrabold text-center '>Kanemo</h1>
-            <p className='text-2xl text-center'>All of your files at a centralized location</p>
-            <p className='text-2xl text-center'>Click to explore <Link className='font-extrabold text-lapisLazuli hover:text-special hover:underline' to='/collections'>Collections</Link></p>
+            <p className='font-poetsen text-2xl text-center'>All of your files at a centralized location</p>
+            <p className='font-poetsen text-xl text-center mt-10 uppercase'>Explore <Link className='font-extrabold text-lapisLazuli hover:text-special hover:underline' to='/collections'>Collections</Link></p>
         </section>
     </main>
   )
