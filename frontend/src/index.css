@@ -27,7 +27,15 @@
     backdrop-filter: blur(30px);
   }
   h1 {
-    letter-spacing: 2px;
+    letter-spacing: 4px;
     line-height: 10rem;
+    text-shadow: -2px 5px 8px #000a;
   }
+  h2, h3 {
+    font-family: 'Poetsen One', sans-serif;
+  }
+  p {
+    font-family: 'Courier New', Courier, monospace;
+  }
+
 }

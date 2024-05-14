@@ -78,8 +78,8 @@ function Collections() {
             <div className='w-full min-h-40 p-2 flex flex-col gap-10 items-center flex-wrap sm:flex sm:flex-row sm:justify-center sm:items-center sm:gap-5'>
             {/* convert the collections into links */}
                 {dataCollections.length !== 0 ? filteredData.map(item => (
-                <Link to={`/library/${item.genre}`} key={item.id} className='w-full sm:w-52 h-36 md:w-80 md:h-56 bg-slate-900 border rounded text-center flex flex-col gap-5 text-white overflow-hidden after:w-[5px] after:h-full after:absolute after:bg-red-500 relative'> 
-                    <p className='mt-4'>{item?.genre?.replace(item.genre.at(0), item.genre.at(0).toUpperCase())}</p>
+                <Link to={`/library/${item.genre}`} key={item.id} className='w-full sm:w-52 h-36 md:w-80 md:h-56 bg-slate-900 border rounded text-center flex flex-col gap-5 text-white shadow-2xl overflow-hidden after:w-[5px] after:h-full after:absolute after:bg-red-500 relative hover:scale-90 transition-all ease-in-out duration-300'> 
+                    <h3 className='mt-4 text-xl'>{item?.genre?.replace(item.genre.at(0), item.genre.at(0).toUpperCase())}</h3>
                     <p>Number of available file: {getCount(dataCollections, item.genre)} </p>
                     {/* <p>{data.name}</p> */}
                 </Link>
@@ -100,6 +100,7 @@ function Collections() {
             </form>
             
             <p>
+                {/* Want to help the community build a very resource free collection of learning materials? Upload your favorite or preferred file to help the community gain more. */}
                 {/*If the collection or files you are looking for is not amongst the list of collections and files we have in our library or you will like to suggest a file or collection that will be great benefit, kindly make a suggestion of the collection or file you intend to see in the library. */}Communicate with us the intended file or collection and see your favorite collection or file in the library. <Link to='/about' className='underline text-blue-200'>Message us</Link>
             </p>
             

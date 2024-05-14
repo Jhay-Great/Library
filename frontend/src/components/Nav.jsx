@@ -33,3 +33,7 @@ const Nav = function ({ handleClick }) {
 };
 
 export default Nav;
+
+/** links
+ * all links or a tag should the same color as collection in the landing page body
+ */
