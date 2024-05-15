@@ -1,8 +1,10 @@
 import React from 'react'
 
-function FlexContainer() {
+function FlexContainer({ children, additionalStyles='' }) {
   return (
-    <div className='flex gap-5'>FlexContainer</div>
+    <div className={`flex justify-center items-center gap-20 flex-wrap ${additionalStyles}`}>
+      { children }
+    </div>
   )
 }
 

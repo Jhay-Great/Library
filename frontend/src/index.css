@@ -34,8 +34,19 @@
   h2, h3 {
     font-family: 'Poetsen One', sans-serif;
   }
+  h3 {
+    font-size: 20px;
+  }
   p {
     font-family: 'Courier New', Courier, monospace;
   }
+  button {
+    font-family: 'Poetsen One';
+    /* background: linear-gradient(to right, #0009, transparent, #00a3); */
+  }
+  /* button:hover {
+    background: linear-gradient(to left, #0009, transparent, #00a3);
+    transition: all 500ms ease-in-out;
+  } */
 
 }

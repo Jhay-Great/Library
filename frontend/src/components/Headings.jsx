@@ -7,6 +7,12 @@ function Headings({children, tag='h1', additionalStyles=''}) {
         </h1>
     );
 
+    if (tag === 'h3') return (
+        <h3 className={` text-white font-bold text-xl ${additionalStyles}`} >
+            {children}
+        </h3>
+    );
+
   return (
     <h2 className={`mb-5 text-white font-semibold text-2xl ${additionalStyles}`}>
         {children}
