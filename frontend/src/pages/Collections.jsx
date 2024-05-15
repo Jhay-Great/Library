@@ -66,7 +66,7 @@ function Collections() {
     <MainContainer>
       <Headings children="Collections" />
 
-      <section>
+      <section className="px-5">
         {/* <Breadcrumbs /> */}
         <Input placeholder="Browser collections" />
         <button>Search</button>
@@ -83,7 +83,7 @@ function Collections() {
               <Link
                 to={`/library/${item.genre}`}
                 key={item.id}
-                className="w-full sm:w-52 h-36 md:w-80 md:h-56 bg-slate-900 border rounded text-center flex flex-col gap-5 text-white shadow-2xl overflow-hidden after:w-[5px] after:h-full after:absolute after:bg-red-500 relative hover:scale-90 transition-all ease-in-out duration-300"
+                className="w-11/12 sm:w-52 h-36 md:w-80 md:h-56 bg-slate-900 border rounded text-center flex flex-col gap-5 text-white shadow-2xl overflow-hidden after:w-[5px] after:h-full after:absolute after:bg-red-500 relative hover:scale-90 transition-all ease-in-out duration-300"
               >
                 <h3 className="mt-4 text-xl">
                   {item?.genre?.replace(
@@ -107,7 +107,7 @@ function Collections() {
       <section  className="mt-10">
       <Headings children="Add new collections" tag="h2" />
 
-        <FlexContainer additionalStyles="h-96 mb-5 px-32 bg-[#002a]">
+        <FlexContainer additionalStyles="mb-5 sm:px-32 bg-[#002a]">
           <div className="flex-1">
             <Headings children="Get to see your favorite collections" tag="h3" />
 
