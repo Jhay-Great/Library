@@ -12,6 +12,7 @@ import {
 import MainContainer from "../components/MainContainer";
 import Input from "../components/Input";
 import FlexContainer from "../components/FlexContainer";
+import SearchBox from "../components/SearchBox";
 
 function Collections() {
   const [dataCollections, setDataCollections] = useState(data); // for testing without server
@@ -68,9 +69,10 @@ function Collections() {
 
       <section className="px-5">
         {/* <Breadcrumbs /> */}
-        <Input placeholder="Browser collections" />
+        {/* <Input placeholder="Browser collections" />
         <button>Search</button>
-        <button>Filter</button>
+        <button>Filter</button> */}
+        <SearchBox />
       </section>
 
       <section className="mt-5">
@@ -151,6 +153,7 @@ function Collections() {
           </form>
         </FlexContainer>
       </section>
+      {/* submission pop up  */}
       {responseFromApi ? (
         <div className="w-fit h-fit p-10 rounded-lg absolute -translate-y-1/2 -translate-x-1/2 top-1/2 left-1/2 bg-blue-800">
           <p className="text-white font-bold text-3xl ">

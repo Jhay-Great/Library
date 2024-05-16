@@ -1,6 +1,6 @@
 const Input = function({ placeholder}) {
     return (
-        <input className='bg-transparent border border-black py-1 px-2 rounded-md' type="search" placeholder={placeholder} />
+        <input className='w-full h-full bg-transparent border-0 border-transparent py-1 px-2 pl-8 rounded-md focus:border-0 focus:outline-0' type="search" placeholder={placeholder} />
     )
 }
 
